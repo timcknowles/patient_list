@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @doctor.name
+%p
+  %b Email:
+  = @doctor.email
+%p
+  %b Address:
+  = @doctor.address
+
+%h2 Patients
+
+%ul
+  -@doctor.patients.each do |patient|
+    %li
+      /= patient.name
+      The name is #{patient.name} the email is #{patient.email}
+
+
+
+
+= link_to 'Edit', edit_doctor_path(@doctor)
+\|
+= link_to 'Back', doctors_path
